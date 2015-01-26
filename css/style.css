@@ -1,0 +1,17 @@
+body{
+  font-family: "Open Sans";
+}
+
+.usain{
+  background-image: url("../images/headerimg.png");
+}
+.headline{
+  font-weight: 800;
+  font-style: italic;
+  font-size: 110px;
+}
+
+.other-headline{
+  font-size: 20px;
+  font-weight: 800;
+}
