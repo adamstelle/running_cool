@@ -21,7 +21,7 @@ Route.prototype.numberMatch = function(a, b) { //Increases rating according to h
 }
 Route.prototype.locationRating = function(a, b) {
   if (a == b){
-    this.routeRating += 1;
+    this.routeRating += 15;
   }
 }
 
