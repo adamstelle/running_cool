@@ -3,15 +3,11 @@ body{
 }
 
 a {
-  color: #ca4a38;
   text-decoration: none;
+  color: #ca4a38;
 }
 
 a:hover{
-  color: #d7c9a0;
-}
-
-a:visited{
   color: #d7c9a0;
 }
 
@@ -21,36 +17,67 @@ h2 {
   margin-bottom: .7em;
 }
 
+.small {
+  font-size: .7em;
+}
+
 footer {
   text-align: center;
 }
 
-#findmyrun {
-  text-align: center;
+input {
+  background-color:#d7c9a0;
+  border-radius:.3em;
+  padding: .6em 3em .6em 1em;
+  color: black;
+  font-size: 1em;
 }
 
-.usain{
+input::-moz-placeholder {
+  color:black;
+}
+
+#findmyrun {
+  text-align: center;
+  background-color:#ca4a38;
+  border-radius:.5em;
+  border:.1em solid #ffffff;
+  font-size:1.2em;
+  font-weight:800;
+  font-style:italic;
+  padding: .7em 3em .7em 3em;
+}
+
+.buttontext {
+  color:black;
+}
+  
+#findmyrun:hover {
+  color:#d7c9a0;
+}
+
+.usain {
   background-image: url("../images/headerimg.png");
   background-size: cover;
 }
 
-.navigation{
+.navigation {
   margin-top: 3em;
   font-size: 1.2em;
   font-weight: 300;
   color: #ca4a38;
 }
 
-.button{  
+.center {
   text-align: center;
 }
 
-.title{
+.title {
   margin-top: 7em;
   margin-bottom: 20em;
 }
 
-.headline{
+.headline {
   font-weight: 800;
   font-style: italic;
   font-size: 110px;
@@ -65,9 +92,9 @@ footer {
   color: #ca4a38;
 }
 
-.maincontainer{
-  margin-top: 4em;
-  margin-bottom: 3em;
+.maincontainer {
+  margin-top: 3em;
+  margin-bottom: 2.5em;
 }
 
 #locationmap {
@@ -78,6 +105,6 @@ footer {
   font-style: italic;
   font-weight: 700;
   font-size: 1.1em;
-  margin-bottom: .5em;
+  margin-bottom: .7em;
 }
 
