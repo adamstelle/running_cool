@@ -21,7 +21,7 @@ Route.prototype.numberMatch = function(a, b) { //Increases rating according to h
 }
 Route.prototype.locationRating = function(a, b) {
   if (a == b){
-    this.routeRating += 1;
+    this.routeRating += 15;
   }
 }
 
@@ -41,40 +41,43 @@ Results.prototype.getBestRoute = function(){ //Returns best route according to t
       console.log(this.groupRoutes[i].location);
       console.log(this.groupRoutes[i].distance);
       console.log(this.groupRoutes[i].incline);
-      // $("#location").append(this.groupRoutes[i].location);
-      // $("#distance").append(this.groupRoutes[i].distance);
-      // $("#incline").append(this.groupRoutes[i].incline);
+      console.log(this.groupRoutes[i].scenery);
+      $("#location-result").append(this.groupRoutes[i].location);
+      $("#distance-result").append(this.groupRoutes[i].distance);
+      $("#incline-result").append(this.groupRoutes[i].incline);
     }
   }
 }
 var results = new Results();
-
 results.addRoute(new Route ("SLU", 2.5, 0, "Amazon"));
-results.addRoute(new Route ("Belltown", 1.75, 0, "Waterfront"));
+results.addRoute(new Route ("Belltown", 7, 4, "Waterfront"));
+results.addRoute(new Route ("Downtown", 16, 0, "McDonalds"));
 
 function compare() {
+  Route.prototype.routeRating = 0;
   var $location = $("#location").val(),
        distance = Number($("#distance").val()),
        incline  = Number($("#incline").val()),
        $scenery = $("#scenery").val();
-
-
   for (var i = 0; i < results.groupRoutes.length; i++) {
     results.groupRoutes[i].numberMatch(distance, results.groupRoutes[i].distance);
     results.groupRoutes[i].numberMatch(incline, results.groupRoutes[i].incline);
+    results.groupRoutes[i].locationRating($location, results.groupRoutes[i].location);
     results.addRating(results.groupRoutes[i].routeRating);
   }
-
   console.log(results.groupRoutes[0].routeRating);
   console.log(results.finalRatings[0]);
-  // results.sort(); //need to sort by number
+  function compareNumbers(a,b) {
+    return b - a;
+  };
+  results.finalRatings.sort(compareNumbers); //need to sort by number
   results.getBestRoute(); // If the first value of finalRatings is the rating of a Route, print the values and the map onto the html
 }
 
-$("#findmyrun").on("click", compare)
-// function(){
-//   $("#results").append(compare());
-//   $("#nameResult").append("#name");
-// });
+function findMoreRoutes() {
+  results.finalRatings.shift();
+  results.getBestRoute();
+}
 
-// If the user clicks the "I want another" button then take the first value out and return the next max value
+$("rerun").on("click", findMoreRoutes);
+$("#findmyrun").on("click", compare);
