@@ -12,24 +12,64 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <article>
-      <section class="usain">
-        <h1 class="headline"><p>FIND</p><p>YOUR</p><p>RUN</p></h1>
+    <main>
+      <section class="usain grid-100">
+        <section class="grid-80 prefix-10 suffix-10 mobile-grid-100">
+          <nav class="navigation grid-10 prefix-85 suffix-5">
+            <a href="about.html">About</a>
+          </nav>
+          <div class="title grid-100 mobile-grid-100">
+            <h1 class="headline grid-30 prefix-10 suffix-60">FIND</h1>
+            <h1 class="headline grid-30 prefix-5 suffix-65">YOUR</h1>
+            <h1 class="headline grid-30 suffix-50">RUN</h1>
+          </div>
+          <div class="button maincontainer mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
+            <a href="index.html"><img src="images/downicon.png"/></a>
+          </div>
+        </section>
       </section>
-      <section>
-        <h1 class="other-headline">Running made <em>easy</em></h1>
-        <p>Just choose your <em>neighborhood</em>, choose your <em>running style</em>, and we'll show you the right route for <strong>you.</strong></p>
-        <p class="user-input">Neighborhood</p>
-        <input type="text" class="username" placeholder="Type in your name">
-        <h2>Running Style</h2>
-        <p class="user-input">Distance</p>
-        <input type="text" class="distance" placeholder="Type in the distance you wish to run"/>
-        <p class="user-input">Incline</p>
-        <input type="text" class="incline" placeholder="The level of incline"/>
-        <p class="user-input">Scenery</p>
-        <input type="text" class="scenery" placeholder="Scenery y'all wanna checkout"/>
+      <section class="maincontainer grid-70 prefix-15 suffix-15">
+        <div class="intro">
+          <h2>Running made <em class="red">easy</em></h2>
+          <p></p>
+        </div>
+        <section class="maincontainer">
+          <h2 class="red">Your Preferred Route is...</h2>
+          <div>
+            <p>Distance:<p id="distance-result"></p></p>
+            <p>Incline:<p id="incline-result"></p></p>
+            <p>Scenery:<p id="scenery-result"></p></p>
+          </div>
+          <div id="googleMap"></div> <!-- embed this from google based on JS selector -->
+          <div id="photos"><!-- embed photos from the webs or google showing the area returned in the results -->
+            <h2>Photos from this route:</h2>
+          </div>
+          <div id="otherRunners"> <!-- show other people which have run these routes -->
+            <h2>People who have run this route:</h2>
+            <div>
+              <img src="images/callumhs.png" alt="Callum">
+              <p>Callum Song</p>
+              <p>10 Routes Run</p>
+            </div>
+            <div>
+              <img src="images/adamhs.png" alt="Adam">
+              <p>Adam Stelle</p>
+              <p>4 Routes Run</p>
+            </div>
+          </div>
+        </section>
+        <section class="maincontainer grid-20 prefix-40 suffix-40">
+         <button id="rerun">FIND ANOTHER RUN</button>
+         <button id="index"><a href="index.html">Home Page</a></button>
+        </section>
+        <div class="button mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
+            <a href="index.html"><img src="images/upicon.png"/></a>
+        </div>
       </section>
-    </article>
+    </main>
+    <footer class="maincontainer">
+      <p>Cool Runnings (c) 2015<br>Created by Scott, Adam, Callum, Sean - Codefellows Bootcamp 2015</p>
+    </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <script src="js/script.js"></script>
