@@ -2,16 +2,82 @@ body{
   font-family: "Open Sans";
 }
 
+a {
+  color: #ca4a38;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #d7c9a0;
+}
+
+a:visited{
+  color: #d7c9a0;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: .7em;
+}
+
+footer {
+  text-align: center;
+}
+
+#findmyrun {
+  text-align: center;
+}
+
 .usain{
   background-image: url("../images/headerimg.png");
+  background-size: cover;
 }
+
+.navigation{
+  margin-top: 3em;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #ca4a38;
+}
+
+.button{  
+  text-align: center;
+}
+
+.title{
+  margin-top: 7em;
+  margin-bottom: 20em;
+}
+
 .headline{
   font-weight: 800;
   font-style: italic;
   font-size: 110px;
+  color: #ca4a38;
 }
 
-.other-headline{
-  font-size: 20px;
-  font-weight: 800;
+.intro {
+  text-align: center;
 }
+
+.red {
+  color: #ca4a38;
+}
+
+.maincontainer{
+  margin-top: 4em;
+  margin-bottom: 3em;
+}
+
+#locationmap {
+  display:inline-block;
+}
+
+.user-input {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: .5em;
+}
+
