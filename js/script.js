@@ -1,15 +1,10 @@
-function Route(location, distance, incline) {
+function Route(name, location, distance, incline) {
+  this.name        = name;
   this.location    = location;
   this.distance    = distance;
   this.incline     = incline;
   this.routeRating = 0;
 }
-
-//could take user inputs as well to create new instances of a Route
-var routeA = new Route("SLU", "2.5", "0"),
-    routeB = new Route("Belltown", "1.75", "0"),
-    routeC = new Route("Queen Ann", "5", "7"),
-    routeD = new Route("Capitol Hill", "6", "8");
 
 function Results() {
 this.groupRoutes = [];
@@ -25,8 +20,8 @@ Results.prototype.addRating = function(route) {
 
 var finalResults = new Results();
 
-finalResults.addRoute(new Route ("SLU", 2.5, 0));
-finalResults.addRoute(new Route ("Belltown", 1.75, 0));
+finalResults.addRoute(new Route ("slu", "SLU", 2.5, 0));
+finalResults.addRoute(new Route ("belltown", "Belltown", 1.75, 0));
 
 
 function numberMatch(a, b) {
@@ -45,18 +40,26 @@ function numberMatch(a, b) {
 }
 
 function compare() {
-  var $location = $("#location"),
-      $distance = $("#distance"),
-      $incline  = $("#incline");
+  var $location = $("#location").text(),
+      distance = Number($("#distance").text()),
+      incline  = Number($("#incline").text());
 
-  numberMatch($distance, groupRoutes[i].distance);
-  numberMatch($incline,  groupRoutes[i].incline);
+  numberMatch(distance, groupRoutes[i].distance);
+  numberMatch(incline,  groupRoutes[i].incline);
 
   if ($location == groupRoutes[i].location){
     groupRoutes[i].routeRating += 1;
   }
 
-// Push scores into an array finalRatings. Sort the array by number method
+
+  finalResults.addRating(groupRoutes[i]);// Push scores into an array finalRatings.
+  finalResults.sort(); //need to sort by number
+  for (var i = 0; i <= finalResults.finalRatings.length; i++) {
+    if (finalResults.groupRoutes[i] == finalResults.finalRatings[0]) {
+      return [finalResults.groupRoutes[i].location, finalResults.groupRoutes[i].distance, finalResults.groupRoutes[i].incline];
+    }
+  }
+  return groupRoutes[i].name;
 // If the first value of finalRatings is the rating of a Route, print the values and the map onto the html
 
 }
