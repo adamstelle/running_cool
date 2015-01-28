@@ -29,6 +29,7 @@ function Results() {
 this.groupRoutes = [];
 this.finalRatings = [];
 }
+
 Results.prototype.addRoute = function(route) {
   this.groupRoutes.push(route);
 };
@@ -38,35 +39,37 @@ Results.prototype.addRating = function(rating) {
 Results.prototype.getBestRoute = function(){ //Returns best route according to the ratings
   for (var i = 0; i < this.finalRatings.length; i++) {
     if (this.groupRoutes[i].routeRating == this.finalRatings[0]) {
-      console.log(this.groupRoutes[i].location);
-      console.log(this.groupRoutes[i].distance);
-      console.log(this.groupRoutes[i].incline);
-      console.log(this.groupRoutes[i].scenery);
-      $("#location-result").append(this.groupRoutes[i].location);
-      $("#distance-result").append(this.groupRoutes[i].distance);
-      $("#incline-result").append(this.groupRoutes[i].incline);
+      $("#location-result").text(this.groupRoutes[i].location);
+      $("#distance-result").text(this.groupRoutes[i].distance);
+      $("#incline-result").text(this.groupRoutes[i].incline);
+      $("#scenery-result").text(this.groupRoutes[i].scenery);
     }
   }
 }
+
 var results = new Results();
 results.addRoute(new Route ("SLU", 2.5, 0, "Amazon"));
 results.addRoute(new Route ("Belltown", 7, 4, "Waterfront"));
 results.addRoute(new Route ("Downtown", 16, 0, "McDonalds"));
 
+function store() {
+  var userValues = {};
+  userValues["location"] = $("#location").val();
+  userValues["distance"] = Number($("#distance").val());
+  userValues["incline"]  = Number($("#incline").val());
+  var jsonObj = JSON.stringify(userValues);
+  localStorage.setItem("storedInputs", jsonObj);
+}
+
 function compare() {
   Route.prototype.routeRating = 0;
-  var $location = $("#location").val(),
-       distance = Number($("#distance").val()),
-       incline  = Number($("#incline").val()),
-       $scenery = $("#scenery").val();
+  var storedInputs = JSON.parse(localStorage.getItem("storedInputs"));
   for (var i = 0; i < results.groupRoutes.length; i++) {
-    results.groupRoutes[i].numberMatch(distance, results.groupRoutes[i].distance);
-    results.groupRoutes[i].numberMatch(incline, results.groupRoutes[i].incline);
-    results.groupRoutes[i].locationRating($location, results.groupRoutes[i].location);
+    results.groupRoutes[i].numberMatch(storedInputs.distance, results.groupRoutes[i].distance);
+    results.groupRoutes[i].numberMatch(storedInputs.incline, results.groupRoutes[i].incline);
+    results.groupRoutes[i].locationRating(storedInputs.location, results.groupRoutes[i].location);
     results.addRating(results.groupRoutes[i].routeRating);
   }
-  console.log(results.groupRoutes[0].routeRating);
-  console.log(results.finalRatings[0]);
   function compareNumbers(a,b) {
     return b - a;
   };
@@ -79,5 +82,10 @@ function findMoreRoutes() {
   results.getBestRoute();
 }
 
-$("rerun").on("click", findMoreRoutes);
-$("#findmyrun").on("click", compare);
+$("#rerun").on("click", findMoreRoutes);
+$("#findmyrun").on("click", store);
+$(document).ready(function() {
+  if ($("#distance-result").length) {
+    compare();
+  }
+});
