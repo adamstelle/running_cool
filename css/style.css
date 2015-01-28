@@ -60,7 +60,10 @@ input::-moz-placeholder {
   background-image: url("../images/headerimg.png");
   background-size: cover;
 }
-
+.jamaicanMan{
+  margin: auto 0;
+  width: 100%;
+}
 .navigation {
   margin-top: 3em;
   font-size: 1.2em;
