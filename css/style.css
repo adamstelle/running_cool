@@ -37,7 +37,7 @@ input::-moz-placeholder {
   color:black;
 }
 
-#findmyrun {
+.buttonstyle {
   text-align: center;
   background-color:#ca4a38;
   border-radius:.5em;
@@ -52,7 +52,7 @@ input::-moz-placeholder {
   color:black;
 }
   
-#findmyrun:hover {
+.buttonstyle:hover {
   color:#d7c9a0;
 }
 
@@ -66,6 +66,10 @@ input::-moz-placeholder {
   font-size: 1.2em;
   font-weight: 300;
   color: #ca4a38;
+}
+
+.navitem {
+  margin-right: 1em;
 }
 
 .center {

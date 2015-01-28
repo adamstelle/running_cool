@@ -12,55 +12,48 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <main>
-      <nav class="navigation grid-10 prefix-85 suffix-5">
-        <a href="index.html">Home</a>
+    <main class="grid-70 prefix-15 suffix-15 mobile-grid-100">
+      <nav class="maincontainer navigation grid-20 prefix-80">
+        <a class="navitem" href="index.html">Home</a>
         <a href="about.html">About</a>
       </nav>
-      <div class="button maincontainer mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
-        <a href="index.html"><img src="images/downicon.png"/></a>
-      </div>
-      </section>
-      <section class="maincontainer grid-70 prefix-15 suffix-15">
-        <div class="intro">
-          <h2>Running made <em class="red">easy</em></h2>
-          <p></p>
+      <section class="maincontainer">
+        <p class="user-input">Your Preferred Route is...</p>
+        <h2 class="red" id="route-result">Placeholder!</h2>
+        <div id="googleMap" class="grid-60 mobile-grid-100">Map here</div> <!-- embed this from google based on JS selector -->
+        <div class="user-input grid-40 mobile-grid-100 mobile-prefix-30">
+          <h2>Route Statistics</h2>
+          <p>Distance:<h2 class="red" id="distance-result"></h2></p>
+          <p>Incline:<h2 class="red" id="incline-result"></h2></p>
+          <p>Scenery:<h2 class="red" id="scenery-result"></h2></p>
         </div>
-        <section class="maincontainer">
-          <h2 class="red">Your Preferred Route is...</h2>
-          <div>
-            <p>Distance:<p id="distance-result"></p></p>
-            <p>Incline:<p id="incline-result"></p></p>
-            <p>Scenery:<p id="scenery-result"></p></p>
+  
+        <div class="maincontainer" id="photos"><!-- embed photos from the webs or google showing the area returned in the results -->
+          <h2>Photos from this route:</h2>
+        </div>
+        <div class="maincontainer" id="otherRunners"> <!-- show other people which have run these routes -->
+          <h2>People who have run this route:</h2>
+          <div class="grid-30 suffix-10 center">
+            <img src="images/callumhs.png" alt="Callum">
+            <p>Callum Song</p>
+            <p>10 Routes Run</p>
           </div>
-          <div id="googleMap"></div> <!-- embed this from google based on JS selector -->
-          <div id="photos"><!-- embed photos from the webs or google showing the area returned in the results -->
-            <h2>Photos from this route:</h2>
+          <div class="grid-30 suffix-10 center">
+            <img src="images/adamhs.png" alt="Adam">
+            <p>Adam Stelle</p>
+            <p>4 Routes Run</p>
           </div>
-          <div id="otherRunners"> <!-- show other people which have run these routes -->
-            <h2>People who have run this route:</h2>
-            <div>
-              <img src="images/callumhs.png" alt="Callum">
-              <p>Callum Song</p>
-              <p>10 Routes Run</p>
-            </div>
-            <div>
-              <img src="images/adamhs.png" alt="Adam">
-              <p>Adam Stelle</p>
-              <p>4 Routes Run</p>
-            </div>
-          </div>
-        </section>
-        <section class="maincontainer grid-20 prefix-40 suffix-40">
-         <button id="rerun">FIND ANOTHER RUN</button>
-         <button id="index"><a href="index.html">Home Page</a></button>
+        </div>
+      </section>
+      <section class="maincontainer grid-20 prefix-40 suffix-40">
+         <button class="buttonstyle" id="rerun">FIND ANOTHER RUN</button>
         </section>
         <div class="button mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
             <a href="index.html"><img src="images/upicon.png"/></a>
         </div>
       </section>
     </main>
-    <footer class="maincontainer">
+    <footer class="small maincontainer">
       <p>Cool Runnings (c) 2015<br>Created by Scott, Adam, Callum, Sean - Codefellows Bootcamp 2015</p>
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
