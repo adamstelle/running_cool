@@ -72,18 +72,18 @@ results.addRoute(new Route ("Arboretum Adventure", "Capitol Hill", 6.2, 10, "Jap
 results.addRoute(new Route ("Lake Washington", "Capitol Hill", 5.4, 0, "Lake views", '<iframe class="mapsize grid-100 mobile-grid-100" src="https://www.google.com/maps/embed?pb=!1m25!1m8!1m3!1d43046.375889079405!2d-122.28566563068853!3d47.59894066018003!3m2!1i1024!2i768!4f13.1!4m14!1i0!3e2!4m3!3m2!1d47.6397318!2d-122.2770759!4m3!3m2!1d47.617226599999995!2d-122.2812883!4m3!3m2!1d47.5705415!2d-122.2764941!5e0!3m2!1sen!2sus!4v1422476478904" width="500" height="300" frameborder="0" style="border:0"></iframe>'));
 
 function store() {
-  // if($(".valueError").length !== 0) {
-  //   $("formError").remove();
-  //   $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly man!</p>");
-  //   event.preventDefault();
-  // } else {
+  if($(".valueError").length !== 0) {
+    $(".formError").remove();
+    $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly man!</p>");
+    event.preventDefault();
+  } else {
   var userValues = {};
   userValues["location"] = $("#location :selected").text();
   userValues["distance"] = Number($("#distance").val());
   userValues["incline"]  = Number($("#incline").val());
   var jsonObj = JSON.stringify(userValues);
   localStorage.setItem("storedInputs", jsonObj);
-  // }
+  }
 }
 
 function compare() {
@@ -108,7 +108,7 @@ function findMoreRoutes() {
 }
 
 
-$("#location").on("blur", function(){
+$("#location").on("change", function(){
   console.log("working");
   var locSelect = $("#location :selected").text();
   $("#locationmap").html(locationMaps[locSelect]);
