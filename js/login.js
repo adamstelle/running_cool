@@ -1,4 +1,4 @@
-$(document).load(".popupContainer").hide();
+$(".popupContainer").hide();
 
 $(".login").on("click", function() {
   $(".popupContainer").toggle();
