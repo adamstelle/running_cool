@@ -33,6 +33,16 @@ input {
   font-size: 1em;
 }
 
+#location {
+  background-color:#d7c9a0;
+  border-radius:.3em;
+  height: 2em;
+  width: 13em;
+  color: black;
+  font-size: 1em;
+  font-weight: 800;
+}
+
 input::-moz-placeholder {
   color:black;
 }
@@ -106,6 +116,7 @@ input::-moz-placeholder {
 
 #locationmap {
   display:inline-block;
+  height: 20em;
 }
 
 .user-input {
@@ -119,19 +130,22 @@ input::-moz-placeholder {
  height: 20em;
 }
 
-.popupContainer{
+.popupContainer {
     position: fixed;
     z-index: 100;
-    background: transparent;
-    border-radius: 1em;
-    display: none;
-    top: 5em;
+    background: white;
+    opacity: .95;
+    border-radius: .5em;
+    top: 15em;
+    padding: 5em 3em 4em 3em;
 }
 
 .popupContainer input {
   background-color:#d7c9a0;
   border-radius:.3em;
-  padding: .6em 3em .6em 1em;
+  padding: .4em 3em .4em 1em;
+  margin-bottom: .2em;
+  margin-top: .2em;
   color: black;
   font-size: 1em;
 }
