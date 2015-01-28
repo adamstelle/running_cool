@@ -33,6 +33,16 @@ input {
   font-size: 1em;
 }
 
+#location {
+  background-color:#d7c9a0;
+  border-radius:.3em;
+  height: 2em;
+  width: 13em;
+  color: black;
+  font-size: 1em;
+  font-weight: 800;
+}
+
 input::-moz-placeholder {
   color:black;
 }
