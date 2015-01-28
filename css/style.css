@@ -51,7 +51,7 @@ input::-moz-placeholder {
 .buttontext {
   color:black;
 }
-  
+
 .buttonstyle:hover {
   color:#d7c9a0;
 }
@@ -112,3 +112,26 @@ input::-moz-placeholder {
   margin-bottom: .7em;
 }
 
+.mapsize {
+ height: 20em;
+}
+
+.popupContainer{
+    position: fixed;
+    z-index: 100;
+    background: transparent;
+    border-radius: 1em;
+    display: none;
+    top: 5em;
+}
+
+.popupContainer input {
+  background-color:#d7c9a0;
+  border-radius:.3em;
+  padding: .6em 3em .6em 1em;
+  color: black;
+  font-size: 1em;
+}
+ input -moz-placeholder {
+  color:black;
+}

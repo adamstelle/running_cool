@@ -13,10 +13,17 @@
   </head>
   <body>
     <article>
+      <section class="popupContainer prefix-25 grid-50 suffix-25">
+        <input id="loginName" class="prefix-25 grid-50 suffix-25" type="text" placeholder="Name">
+        <input class="prefix-25 grid-50 suffix-25" type="password" placeholder="Password">
+        <button class="buttonstyle prefix-25 grid-25" id="log"><a class="buttontext">Login</a></button>
+        <button class="buttonstyle grid-25 suffix-25" id="exit"><a class="buttontext">Exit</a></button>
+      </section>
       <section class="usain grid-100">
         <section class="grid-80 prefix-10 suffix-10 mobile-grid-100">
           <nav class="navigation grid-10 prefix-85 suffix-5">
             <a href="about.html">About</a>
+            <a class="login">Login</a>
           </nav>
           <div class="title grid-100 mobile-grid-100">
             <h1 class="headline grid-30 prefix-10 suffix-60">FIND</h1>
@@ -30,14 +37,20 @@
       </section>
       <section class="maincontainer grid-70 prefix-15 suffix-15">
         <div class="intro">
+          <h2 id="nameInsert"></h2>
           <h2>Running made <em class="red">easy</em></h2>
           <p>Just choose your <em class="red"> neighborhood</em> and<em class="red"> running style</em>, and we'll show you the right route for <strong>you.</strong></p>
         </div>
         <div class="maincontainer">
           <div class="grid-45 mobile-grid-50 mobile-prefix-25 mobile-suffix-25">
             <p class="user-input">Neighborhood</p>
-            <input type="text" id="location" placeholder="Type in your name">
-          </div> 
+            <select name="select" id="location">
+              <option class="" value="value1" selected>SLU</option>
+              <option class="" value="value2">Downtown</option>
+              <option class="" value="value3">Ballard</option>
+              <option class="" value="value4">Capital Hill</option>
+            </select>
+          </div>
           <img id="locationmap grid-50" src="images/frontpagemap.png">
         </div>
         <section class="maincontainer">
@@ -60,12 +73,12 @@
       </section>
     </article>
     <footer class="maincontainer">
-      <p class="small">Cool Runnings (c) 2015<br>Created by Scott, Adam, Callum - Codefellows Bootcamp 2015</p>
+      <p class="small">Cool Runnings (c) 2015<br>Created by Scott, Sean, Adam, Callum - Codefellows Bootcamp 2015</p>
     </footer>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <script src="js/script.js"></script>
-    <script src="js/json2.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>
