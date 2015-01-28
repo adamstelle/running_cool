@@ -18,12 +18,12 @@ Route.prototype.numberMatch = function(a, b) { //Increases rating according to h
   } else {
     this.routeRating += 1;
   }
-}
+};
 Route.prototype.locationRating = function(a, b) {
   if (a == b){
     this.routeRating += 15;
   }
-}
+};
 
 function Results() {
 this.groupRoutes = [];
@@ -45,7 +45,7 @@ Results.prototype.getBestRoute = function(){ //Returns best route according to t
       $("#scenery-result").text(this.groupRoutes[i].scenery);
     }
   }
-}
+};
 
 var results = new Results();
 results.addRoute(new Route ("SLU", 2.5, 0, "Amazon"));
@@ -53,12 +53,18 @@ results.addRoute(new Route ("Belltown", 7, 4, "Waterfront"));
 results.addRoute(new Route ("Downtown", 16, 0, "McDonalds"));
 
 function store() {
+  if($(".valueError").length !== 0) {
+    $("formError").remove();
+    $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly man!</p>");
+    event.preventDefault();
+  } else {
   var userValues = {};
   userValues["location"] = $("#location").val();
   userValues["distance"] = Number($("#distance").val());
   userValues["incline"]  = Number($("#incline").val());
   var jsonObj = JSON.stringify(userValues);
   localStorage.setItem("storedInputs", jsonObj);
+  }
 }
 
 function compare() {
@@ -72,7 +78,7 @@ function compare() {
   }
   function compareNumbers(a,b) {
     return b - a;
-  };
+  }
   results.finalRatings.sort(compareNumbers); //need to sort by number
   results.getBestRoute(); // If the first value of finalRatings is the rating of a Route, print the values and the map onto the html
 }
@@ -82,10 +88,18 @@ function findMoreRoutes() {
   results.getBestRoute();
 }
 
+
+
 $("#rerun").on("click", findMoreRoutes);
 $("#findmyrun").on("click", store);
 $(document).ready(function() {
   if ($("#distance-result").length) {
     compare();
+  }
+});
+$("input").on("blur", function() {
+  $(".valueError").remove();
+  if($(this).val().length === 0) {
+    $(this).after("<p class='valueError'>Please enter a value.</p>");
   }
 });
