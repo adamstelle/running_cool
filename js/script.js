@@ -74,7 +74,7 @@ results.addRoute(new Route ("Lake Washington", "Capitol Hill", 5.4, 0, "Lake vie
 function store() {
   if($(".valueError").length !== 0) {
     $(".formError").remove();
-    $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly man!</p>");
+    $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
     event.preventDefault();
   } else {
   var userValues = {};
@@ -124,6 +124,6 @@ $(document).ready(function() {
 $("input").on("blur", function() {
   $(".valueError").remove();
   if($(this).val().length === 0) {
-    $(this).after("<p class='valueError'>Please enter a value.</p>");
+    $(this).after("<p class='valueError'>Enter a value mahn!</p>");
   }
 });

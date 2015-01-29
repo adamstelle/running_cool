@@ -13,12 +13,13 @@ $("#log").on("click", Login);
 function Login() {
   if($(".valueError").length !== 0) {
     $(".formError").remove();
-    $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly man!</p>");
+    $("#loginName").before("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
     event.preventDefault();
   } else {
   var $name = $("#loginName").val();
-  console.log($name);
   $("#nameInsert").append("<h2>Hello: </h2><p>" + $name + "</p>");
   $(".popupContainer").toggle();
+  $(".login").hide();
+  $("nav").append("<a class='navitem logout'>Logout</a>");
   }
 }
