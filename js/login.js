@@ -17,7 +17,7 @@ function Login() {
     event.preventDefault();
   } else {
   var $name = $("#loginName").val();
-  $("#nameInsert").append("<h2 class='greetings'>Hello: </h2><p class='greetings'>" + $name + "</p>");
+  $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
   $(".popupContainer").toggle();
   $(".login").hide();
   $("nav").append("<a class='navitem logout'>Logout</a>");

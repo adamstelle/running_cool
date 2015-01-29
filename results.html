@@ -13,49 +13,50 @@
   </head>
   <body>
     <main class="grid-70 prefix-15 suffix-15 mobile-grid-100">
-      <nav class="maincontainer navigation grid-20 prefix-80">
+      <nav id="top" class="maincontainer navigation grid-20 prefix-80">
         <a class="navitem" href="index.html">Home</a>
         <a href="about.html">About</a>
       </nav>
-      <section class="maincontainer">
-        <p class="user-input">Your Preferred Route is...</p>
-        <h2 class="red" id="route-result"></h2>
-        <div id="googleMap" class="grid-60 mobile-grid-100">Map here</div> <!-- embed this from google based on JS selector -->
+      <section class="grid-100 maincontainer">
+        <p id="nameresult" class="user-input">Your Preferred Route is...</p>
+        <h2 class="red" id="route-result">Placeholder!</h2>
+        <div id="googleMap" class="grid-60 mobile-grid-100">Map here</div>
         <div class="user-input grid-40 mobile-grid-100 mobile-prefix-30">
           <h2>Route Statistics</h2>
           <p>Distance:<h2 class="red" id="distance-result"></h2></p>
           <p>Incline:<h2 class="red" id="incline-result"></h2></p>
           <p>Scenery:<h2 class="red" id="scenery-result"></h2></p>
         </div>
-
-        <div class="maincontainer" id="photos"><!-- embed photos from the webs or google showing the area returned in the results -->
+      </section>
+      <section class="grid-100 maincontainer">
+        <div id="photos"><!-- embed photos from the webs or google showing the area returned in the results -->
           <h2>Photos from this route:</h2>
         </div>
-        <div class="maincontainer" id="otherRunners"> <!-- show other people which have run these routes -->
+        <div class="maincontainer" id="otherRunners"> 
           <h2>People who have run this route:</h2>
-          <div class="grid-30 suffix-10 center">
+          <div class="grid-15 suffix-5 center">
             <img src="images/callumhs.png" alt="Callum">
-            <p>Callum Song</p>
-            <p>10 Routes Run</p>
+            <strong><p><em class="red">Callum Song</em></p>
+            <p>10 Routes Run</p></strong>
           </div>
-          <div class="grid-30 suffix-10 center">
+          <div class="grid-15 suffix-5 center">
             <img src="images/adamhs.png" alt="Adam">
-            <p>Adam Stelle</p>
-            <p>4 Routes Run</p>
+            <strong><p><em class="red">Adam Stelle</em></p>
+            <p>4 Routes Run</p></strong>
           </div>
         </div>
       </section>
-      <section class="maincontainer grid-20 prefix-40 suffix-40">
+      <section class="maincontainer center">
          <button class="buttonstyle" id="rerun">FIND ANOTHER RUN</button>
         </section>
-        <div class="button mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
-            <a href="index.html"><img src="images/upicon.png"/></a>
+        <div class="maincontainer center">
+            <a href="#top"><img src="images/upicon.png"/></a>
         </div>
       </section>
     </main>
-    <footer class="small maincontainer">
+    <footer class="small maincontainer center">
       <p>Cool Runnings (c) 2015<br>Created by Scott, Adam, Callum, Sean - Codefellows Bootcamp 2015</p>
-    </footer>
+    </footer class="center">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <script src="js/script.js"></script>
