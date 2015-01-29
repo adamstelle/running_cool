@@ -15,7 +15,7 @@ body{
 }
 
 .usain {
-  background-image: url("../images/headerimg.png");
+  background-image: url("../images/headerimg.jpg");
   background-size: cover;
 }
 
@@ -31,12 +31,12 @@ body{
 
 .maincontainer {
   margin-top: 3em;
-  margin-bottom: 2.5em;
+  margin-bottom: 5em;
 }
 
 .title {
   margin-top: 7em;
-  margin-bottom: 20em;
+  margin-bottom: 15em;
 }
 
 .headline {
@@ -66,7 +66,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #ca4a38;
+  color: #ffd500;
 }
 
 a:hover{
@@ -77,9 +77,9 @@ a:hover{
   font-size: .7em;
 }
 
-.buttontext {
+/*.buttontext {
   color:#ffd500;
-}
+}*/
 
 #location {
   background-color:#2a2c2b;
@@ -115,6 +115,7 @@ input {
 }
 
 .buttonstyle {
+  color:#ffd500;
   text-align: center;
   background-color:#2a2c2b;
   border-radius:.5em;
