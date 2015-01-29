@@ -74,7 +74,7 @@ results.addRoute(new Route ("Lake Washington", "Capitol Hill", 5.4, 0, "Lake vie
 function store() {
   if($(".valueError").length !== 0) {
     $(".formError").remove();
-    $(".buttonstyle").after("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
+    $("#findmyrun").after("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
     event.preventDefault();
   } else {
   var userValues = {};

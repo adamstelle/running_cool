@@ -20,7 +20,7 @@
         <button class="buttonstyle prefix-25 grid-25" id="log"><a class="buttontext">Login</a></button>
         <button class="buttonstyle grid-25 suffix-25" id="exit"><a class="buttontext">Exit</a></button>
       </section>
-      <section class="usain grid-100">
+      <section class="usain grid-100" id="top">
         <section class="grid-80 prefix-10 suffix-10 mobile-grid-100">
           <nav class="navigation grid-20 prefix-80">
             <a class="navitem about-us" href="about.html">About</a>
@@ -32,14 +32,14 @@
             <h1 class="headline grid-30 suffix-50">RUN</h1>
           </div>
           <div class="center maincontainer mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
-            <a href="index.html"><img src="images/downicon.png"/></a>
+            <a href="#middle" id="goMiddle"><img src="images/downicon.png"/></a>
           </div>
         </section>
       </section>
       <section class="maincontainer grid-70 prefix-15 suffix-15">
         <div class="intro">
           <h2 id="nameInsert"></h2>
-          <h2>Running made <em class="red">easy</em></h2>
+          <h2 id="middle">Running made <em class="red">easy</em></h2>
           <p>Just choose your <em class="red"> neighborhood</em> and<em class="red"> running style</em>, and we'll show you the right route for <strong>you.</strong></p>
         </div>
         <div class="maincontainer">
@@ -70,7 +70,7 @@
           <button class="buttonstyle" id="findmyrun"><a href="results.html" class="buttontext">FIND MY RUN<a></button>
         </section>
         <div class="center mobile-prefix-45 mobile-suffix-45 grid-10 prefix-45 suffix-45">
-            <a href="index.html"><img src="images/upicon.png"/></a>
+            <a href="#top" id="goTop"><img src="images/upicon.png"/></a>
         </div>
       </section>
     </article>
