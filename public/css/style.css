@@ -19,6 +19,12 @@ body{
   background-size: cover;
 }
 
+.jamaicaMan {
+  background-size: contain;
+  display: inline-text;
+  width: 100%;
+}
+
 .center {
   text-align: center;
 }
@@ -53,6 +59,11 @@ h2 {
   margin-bottom: .7em;
 }
 
+p {
+  letter-spacing: .05em;
+  line-height: 1.4em;
+}
+
 a {
   text-decoration: none;
   color: #ca4a38;
@@ -67,7 +78,7 @@ a:hover{
 }
 
 .buttontext {
-  color:black;
+  color:#ffd500;
 }
 
 #location {
@@ -105,7 +116,7 @@ input {
 
 .buttonstyle {
   text-align: center;
-  background-color:#00a43d;
+  background-color:#2a2c2b;
   border-radius:.5em;
   border:.1em solid #ffffff;
   font-size:1.2em;
@@ -130,16 +141,6 @@ input {
     border-radius: .5em;
     top: 15em;
     padding: 5em 3em 4em 3em;
-}
-
-.popupContainer input {
-  background-color:#d7c9a0;
-  border-radius:.3em;
-  padding: .4em 3em .4em 1em;
-  margin-bottom: .2em;
-  margin-top: .2em;
-  color: black;
-  font-size: 1em;
 }
 
 .green {
