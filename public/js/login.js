@@ -1,14 +1,12 @@
 $(".popupContainer").hide();
-
 $(".login").on("click", function() {
-  $(".popupContainer").toggle();
+  $(".popupContainer").show();
 });
-
 $("#exit").on("click", function() {
   $(".popupContainer").toggle();
 });
-
 $("#login").on("click", Login);
+$("#logout").on("click, Logout");
 
 function Login() {
   if($(".valueError").length !== 0) {
@@ -18,9 +16,19 @@ function Login() {
   } else {
   var $name = $("#loginName").val();
   $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
-  $(".popupContainer").toggle();
   $(".login").hide();
-  $("nav").append("<a class='navitem logout'>Logout</a>");
+  $(".popupContainer").toggle();
+  $("nav").append("<a class='navitem green logout'>Logout</a>");
   }
 }
-
+function Logout() {
+  $("#nameInsert").detach();
+  $("#logout").hide();
+  $(".login").show();
+}
+$('a[href*=#]').click(function(event){
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    event.preventDefault();
+});
