@@ -168,12 +168,3 @@ input {
 #otherRunners img {
   width: 8em;
 }
-
-/*Clearfix hack... sorry Dexter!*/
-.group:after {
-  visibility: hidden;
-  display: block;
-  content: "";
-  clear: both;
-  height: 0;
-  }
