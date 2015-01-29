@@ -29,8 +29,9 @@ footer {
   width: 100%;
 }
 
-.getty {
-  width: 100%;
+#photos {
+  height: 20em;
+  display: inline-block;
 }
 
 .center {
@@ -39,7 +40,7 @@ footer {
 
 .maincontainer {
   margin-top: 2em;
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 
 .title {
