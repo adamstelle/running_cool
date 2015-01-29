@@ -8,7 +8,6 @@ body{
   margin-top: 3em;
   font-size: 1.2em;
   font-weight: 300;
-  color: #ca4a38;
 }
 
 .navitem {
@@ -38,16 +37,15 @@ body{
   font-weight: 800;
   font-style: italic;
   font-size: 110px;
-  color: #ca4a38;
-}
-
-.about {
-  font-weight: 100;
-  font-size: 3em;
-  color: #ca4a38;
+  color: #ffd500;
 }
 
 /*text styling*/
+
+h1 {
+  font-weight: 100;
+  font-size: 3em;
+}
 
 h2 {
   font-size: 1.2em;
@@ -73,11 +71,11 @@ a:hover{
 }
 
 #location {
-  background-color:#d7c9a0;
+  background-color:#2a2c2b;
   border-radius:.3em;
-  height: 2em;
-  width: 13em;
-  color: black;
+  height: 2.5em;
+  width: 15em;
+  color: #ffd500;
   font-size: 1em;
   font-weight: 800;
 }
@@ -85,16 +83,29 @@ a:hover{
 /*MODULES*/
 
 input {
-  background-color:#d7c9a0;
+  background-color:#2a2c2b;
   border-radius:.3em;
   padding: .6em 3em .6em 1em;
-  color: black;
+  color: #ffd500;
   font-size: 1em;
+}
+
+::-webkit-input-placeholder { 
+    color:    #ffd500;
+    opacity: .5;
+}
+:-moz-placeholder { 
+   color:    #ffd500;
+   opacity:  .5;
+}
+::-moz-placeholder { 
+   color:    #ffd500;
+   opacity:  .5;
 }
 
 .buttonstyle {
   text-align: center;
-  background-color:#ca4a38;
+  background-color:#00a43d;
   border-radius:.5em;
   border:.1em solid #ffffff;
   font-size:1.2em;
@@ -131,8 +142,8 @@ input {
   font-size: 1em;
 }
 
-.red {
-  color: #ca4a38;
+.green {
+  color: #00a43d;
 }
 
 #locationmap {
