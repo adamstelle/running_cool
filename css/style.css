@@ -1,79 +1,9 @@
+/*LAYOUT*/
+
 body{
   font-family: "Open Sans";
 }
 
-a {
-  text-decoration: none;
-  color: #ca4a38;
-}
-
-a:hover{
-  color: #d7c9a0;
-}
-
-h2 {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: .7em;
-}
-
-.small {
-  font-size: .7em;
-}
-
-footer {
-  text-align: center;
-}
-
-input {
-  background-color:#d7c9a0;
-  border-radius:.3em;
-  padding: .6em 3em .6em 1em;
-  color: black;
-  font-size: 1em;
-}
-
-#location {
-  background-color:#d7c9a0;
-  border-radius:.3em;
-  height: 2em;
-  width: 13em;
-  color: black;
-  font-size: 1em;
-  font-weight: 800;
-}
-
-input::-moz-placeholder {
-  color:black;
-}
-
-.buttonstyle {
-  text-align: center;
-  background-color:#ca4a38;
-  border-radius:.5em;
-  border:.1em solid #ffffff;
-  font-size:1.2em;
-  font-weight:800;
-  font-style:italic;
-  padding: .7em 3em .7em 3em;
-}
-
-.buttontext {
-  color:black;
-}
-
-.buttonstyle:hover {
-  color:#d7c9a0;
-}
-
-.usain {
-  background-image: url("../images/headerimg.png");
-  background-size: cover;
-}
-.jamaicanMan{
-  margin: auto 0;
-  width: 100%;
-}
 .navigation {
   margin-top: 3em;
   font-size: 1.2em;
@@ -85,8 +15,18 @@ input::-moz-placeholder {
   margin-right: 1em;
 }
 
+.usain {
+  background-image: url("../images/headerimg.png");
+  background-size: cover;
+}
+
 .center {
   text-align: center;
+}
+
+.maincontainer {
+  margin-top: 3em;
+  margin-bottom: 2.5em;
 }
 
 .title {
@@ -101,29 +41,64 @@ input::-moz-placeholder {
   color: #ca4a38;
 }
 
-.intro {
-  text-align: center;
+/*text styling*/
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 800;
+  margin-bottom: .7em;
 }
 
-.red {
+a {
+  text-decoration: none;
   color: #ca4a38;
 }
 
-.maincontainer {
-  margin-top: 3em;
-  margin-bottom: 2.5em;
+a:hover{
+  color: #d7c9a0;
 }
 
-#locationmap {
-  display:inline-block;
-  height: 20em;
+.small {
+  font-size: .7em;
 }
 
-.user-input {
-  font-style: italic;
-  font-weight: 700;
-  font-size: 1.1em;
-  margin-bottom: .7em;
+.buttontext {
+  color:black;
+}
+
+#location {
+  background-color:#d7c9a0;
+  border-radius:.3em;
+  height: 2em;
+  width: 13em;
+  color: black;
+  font-size: 1em;
+  font-weight: 800;
+}
+
+/*MODULES*/
+
+input {
+  background-color:#d7c9a0;
+  border-radius:.3em;
+  padding: .6em 3em .6em 1em;
+  color: black;
+  font-size: 1em;
+}
+
+.buttonstyle {
+  text-align: center;
+  background-color:#ca4a38;
+  border-radius:.5em;
+  border:.1em solid #ffffff;
+  font-size:1.2em;
+  font-weight:800;
+  font-style:italic;
+  padding: .7em 3em .7em 3em;
+}
+
+.buttonstyle:hover {
+  color:#d7c9a0;
 }
 
 .mapsize {
@@ -149,6 +124,23 @@ input::-moz-placeholder {
   color: black;
   font-size: 1em;
 }
- input -moz-placeholder {
-  color:black;
+
+.red {
+  color: #ca4a38;
+}
+
+#locationmap {
+  display:inline-block;
+  height: 20em;
+}
+
+.user-input {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: .7em;
+}
+
+#otherRunners img {
+  width: 8em;
 }
