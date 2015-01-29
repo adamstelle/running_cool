@@ -76,7 +76,11 @@ function store() {
     $(".formError").remove();
     $("#findmyrun").after("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
     event.preventDefault();
-  } else {
+  } else if ($(".logout").length === 0) {
+    $(".formError").remove();
+    $("#findmyrun").after("<p class='formError'>You 'ave to login mahn!</p>");
+    event.preventDefault();
+  }else {
   var userValues = {};
   userValues["location"] = $("#location :selected").text();
   userValues["distance"] = Number($("#distance").val());
@@ -127,3 +131,4 @@ $("input").on("blur", function() {
     $(this).after("<p class='valueError'>Enter a value mahn!</p>");
   }
 });
+

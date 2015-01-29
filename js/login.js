@@ -8,7 +8,7 @@ $("#exit").on("click", function() {
   $(".popupContainer").toggle();
 });
 
-$("#log").on("click", Login);
+$("#login").on("click", Login);
 
 function Login() {
   if($(".valueError").length !== 0) {
@@ -17,9 +17,10 @@ function Login() {
     event.preventDefault();
   } else {
   var $name = $("#loginName").val();
-  $("#nameInsert").append("<h2>Hello: </h2><p>" + $name + "</p>");
+  $("#nameInsert").append("<h2 class='greetings'>Hello: </h2><p class='greetings'>" + $name + "</p>");
   $(".popupContainer").toggle();
   $(".login").hide();
   $("nav").append("<a class='navitem logout'>Logout</a>");
   }
 }
+
