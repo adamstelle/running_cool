@@ -26,11 +26,6 @@ body {
   width: 100%;
 }
 
-.fixedheight {
-  height: 20em;
-  display: inline-block;
-}
-
 .center {
   text-align: center;
 }
