@@ -1,7 +1,8 @@
 var resultPhotos = new ResultPhoto();
 
+
 $("#login").on("click", Login);
-$("#logout").on("click, Logout");
+$(".logout").on("click", Logout);
 $("#rerun").on("click", findMoreRoutes);
 $("#findmyrun").on("click", store);
 $(".popupContainer").hide();
@@ -15,6 +16,18 @@ $("#location").on("change", function(){
 $(function() {
   if ($("#distance-result").length) {
     compare();
+  }
+});
+
+$(function() {
+  if (localStorage.length === 0) {
+    $(".login").show();
+    $(".logout").hide();
+  } else {
+    $(".login").hide();
+    $(".logout").show();
+    var $name = JSON.parse(localStorage.getItem("storedInputs")).userName;
+    $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
   }
 });
 
@@ -132,6 +145,7 @@ function store() {
     userValues["location"] = $("#location :selected").text();
     userValues["distance"] = Number($("#distance").val());
     userValues["incline"]  = Number($("#incline").val());
+    userValues["userName"] = $("#loginName").val();
     var jsonObj = JSON.stringify(userValues);
     localStorage.setItem("storedInputs", jsonObj);
   }
@@ -140,6 +154,7 @@ function store() {
 function compare() {
   Route.prototype.routeRating = 0;
   var storedInputs = JSON.parse(localStorage.getItem("storedInputs"));
+  $("#nameresult").prepend(storedInputs.userName + " ");
   for (var i = 0; i < results.groupRoutes.length; i++) {
     results.groupRoutes[i].numberMatch(storedInputs.distance, results.groupRoutes[i].distance);
     results.groupRoutes[i].numberMatch(storedInputs.incline, results.groupRoutes[i].incline);
@@ -182,6 +197,8 @@ function Logout() {
   $("#nameInsert").detach();
   $("#logout").hide();
   $(".login").show();
+  localStorage.clear();
+  location.reload();
 }
 
 var results = new Results();
