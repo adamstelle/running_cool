@@ -22,7 +22,7 @@ body {
 
 .jamaicaMan {
   background-size: contain;
-  display: inline-text;
+  display: inline-block;
   width: 100%;
 }
 
@@ -48,7 +48,7 @@ body {
 .headline {
   font-weight: 800;
   font-style: italic;
-  font-size: 6.5em;
+  font-size: 6.7em;
   color: #ffd500;
 }
 
