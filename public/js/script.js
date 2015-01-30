@@ -1,34 +1,15 @@
 var resultPhotos = new ResultPhoto();
 
-
 $("#login").on("click", Login);
 $(".logout").on("click", Logout);
 $("#rerun").on("click", findMoreRoutes);
 $("#findmyrun").on("click", store);
 $(".popupContainer").hide();
 
-$("#location").on("change", function(){
+$("#location").on("change", function() {
   console.log("working");
   var locSelect = $("#location :selected").text();
   $("#locationmap").html(locationMaps[locSelect]);
-});
-
-$(function() {
-  if ($("#distance-result").length) {
-    compare();
-  }
-});
-
-$(function() {
-  if (localStorage.length === 0) {
-    $(".login").show();
-    $(".logout").hide();
-  } else {
-    $(".login").hide();
-    $(".logout").show();
-    var $name = JSON.parse(localStorage.getItem("storedInputs")).userName;
-    $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
-  }
 });
 
 $("input").on("blur", function() {
@@ -89,44 +70,32 @@ Route.prototype.locationRating = function(a, b) {
   }
 };
 
-function Results() {
-this.groupRoutes = [];
-this.finalRatings = [];
+function Login() {
+  if($(".valueError").length !== 0) {
+    $(".formError").remove();
+    $("#loginName").before("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
+    event.preventDefault();
+  }
+  else if ($("#loginName").val().length === 0 || $("#password").val().length === 0) {
+    $(".formError").remove();
+    $("#loginName").before("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
+    event.preventDefault();
+  }
+  else {
+    var $name = $("#loginName").val();
+    $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
+    $(".login").hide();
+    $(".popupContainer").toggle();
+    $("nav").append("<a class='navitem green logout'>Logout</a>");
+    }
 }
 
-Results.prototype.addRoute = function(route) {
-  this.groupRoutes.push(route);
-};
-
-Results.prototype.addRating = function(rating) {
-  this.finalRatings.push(rating);
-};
-
-Results.prototype.getBestRoute = function(){ //Returns best route according to the ratings
-  for (var i = 0; i < this.finalRatings.length; i++) {
-    if (this.groupRoutes[i].routeRating == this.finalRatings[0]) {
-      $("#route-result").text(this.groupRoutes[i].name);
-      $("#distance-result").text(this.groupRoutes[i].distance);
-      $("#incline-result").text(this.groupRoutes[i].incline);
-      $("#scenery-result").text(this.groupRoutes[i].scenery);
-      $("#photos").html($.parseHTML(this.groupRoutes[i].photos));
-      $("#googleMap").html($.parseHTML(this.groupRoutes[i].mapId));
-    }
-  }
-};
-
-var locationMaps = {
-  "Ballard"      : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21490.800471663748!2d-122.38718025!3d47.677621250000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549015d57a5da881%3A0xd07680ac0ad3f49c!2sBallard%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477120614" frameborder="0" width=100% height=100% style="border:0"></iframe>',
-  "SLU"          : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10755.818856667463!2d-122.336762!3d47.627011549999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490153bc67a5d5b%3A0xa91e9c10a999a3be!2sSouth+Lake+Union%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477079517" frameborder="0" width=100% height=100% style="border:0"></iframe>',
-  "Downtown"     : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21520.537162113087!2d-122.33553720000003!3d47.60538405000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab6b122572d%3A0x4cc65f51348e1d43!2sDowntown%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477160089" frameborder="0" width=100% height=100% style="border:0"></iframe>',
-  "Capitol Hill" : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21511.28665154784!2d-122.3158121!3d47.62786454999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490152857c86161%3A0xef487dc6bbc25185!2sCapitol+Hill%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477188401" frameborder="0" width=100% height=100% style="border:0"></iframe>'
-};
-
-function ResultPhoto() {
-  this.ballard =  '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/461495980?et=iqefBmdTQjZxO3iJGjwWiA&sig=lGolUc_5U6zP422NAMnDS9KkuX6KuQiLXtYtWLSZqx8=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100" src="http://embed.gettyimages.com/embed/521008297?et=9Es59AaqSatVMhR7mHuJbg&sig=UvH8C6YVKcA8lDZ1l9Be_bi2W6xekiP6uZyI00patQk=" mobile-grid-100" width="100%" height="400px" scrolling="no" frameborder="0"></iframe>';
-  this.slu = '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/85258294?et=mLXGrJ-qRk5VVhLUCGjv8w&sig=IDoSLtOqJOTsu_mC0gIdXnQHItXbIZ7EbXMPTrxYlVc=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100 src="http://embed.gettyimages.com/embed/85185181?et=U9SvunO9QzBLLkrra589Qw&sig=3xZsQniAiACzurPF7UMZyGpRvSUUIoq3MAlbwlaCtkQ=" scrolling="no" mobile-grid-100" width="100% height="400px" frameborder="0"></iframe>';
-  this.downtown = '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/85205779?et=0dT8joEWS5dzpgbz72Lnuw&sig=6_iZ8xos-Gi731mnGWwA1A2QhglzVHgoy6vLTiCOc1c=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100" src="http://embed.gettyimages.com/embed/518922599?et=gPQWKblaSz1zRmei3a6K9g&sig=zZxlVyqJ5dcswIpnxHhcDzfO9B1RUYuoF3wHuYpkXE4=" mobile-grid-100" width="100%" height="400px" scrolling="no" frameborder="0"></iframe>';
-  this.caphill =  '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/515270145?et=V8JOu4YQSIBifY9F7FYIhw&sig=zf17ripZ3haI9GfHeX6KzPFd93Q1SOCDRsD8k-X5Q1w=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100" src="http://embed.gettyimages.com/embed/518922597?et=HPtTORb7RgRtIwgcDD65IA&sig=KUy8mMu2UmrQMq27FRHkg_oOzr2d61fJWUCUchxut2o=" mobile-grid-100" width="100%" height="400px" scrolling="no" frameborder="0"></iframe>';
+function Logout() {
+  $("#nameInsert").detach();
+  $("#logout").hide();
+  $(".login").show();
+  localStorage.clear();
+  location.reload();
 }
 
 function store() {
@@ -168,8 +137,48 @@ function compare() {
   function compareNumbers(a,b) {
     return b - a;
   }
-  results.finalRatings.sort(compareNumbers); //need to sort by number
-  results.getBestRoute(); // If the first value of finalRatings is the rating of a Route, print the values and the map onto the html
+  results.finalRatings.sort(compareNumbers);
+  results.getBestRoute();
+}
+
+function Results() {
+this.groupRoutes = [];
+this.finalRatings = [];
+}
+
+Results.prototype.addRoute = function(route) {
+  this.groupRoutes.push(route);
+};
+
+Results.prototype.addRating = function(rating) {
+  this.finalRatings.push(rating);
+};
+
+Results.prototype.getBestRoute = function() {
+  for (var i = 0; i < this.finalRatings.length; i++) {
+    if (this.groupRoutes[i].routeRating == this.finalRatings[0]) {
+      $("#route-result").text(this.groupRoutes[i].name);
+      $("#distance-result").text(this.groupRoutes[i].distance);
+      $("#incline-result").text(this.groupRoutes[i].incline);
+      $("#scenery-result").text(this.groupRoutes[i].scenery);
+      $("#photos").html($.parseHTML(this.groupRoutes[i].photos));
+      $("#googleMap").html($.parseHTML(this.groupRoutes[i].mapId));
+    }
+  }
+};
+
+var locationMaps = {
+  "Ballard"      : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21490.800471663748!2d-122.38718025!3d47.677621250000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549015d57a5da881%3A0xd07680ac0ad3f49c!2sBallard%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477120614" frameborder="0" width=100% height=100% style="border:0"></iframe>',
+  "SLU"          : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10755.818856667463!2d-122.336762!3d47.627011549999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490153bc67a5d5b%3A0xa91e9c10a999a3be!2sSouth+Lake+Union%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477079517" frameborder="0" width=100% height=100% style="border:0"></iframe>',
+  "Downtown"     : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21520.537162113087!2d-122.33553720000003!3d47.60538405000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab6b122572d%3A0x4cc65f51348e1d43!2sDowntown%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477160089" frameborder="0" width=100% height=100% style="border:0"></iframe>',
+  "Capitol Hill" : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21511.28665154784!2d-122.3158121!3d47.62786454999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490152857c86161%3A0xef487dc6bbc25185!2sCapitol+Hill%2C+Seattle%2C+WA!5e0!3m2!1sen!2sus!4v1422477188401" frameborder="0" width=100% height=100% style="border:0"></iframe>'
+};
+
+function ResultPhoto() {
+  this.ballard  = '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/461495980?et=iqefBmdTQjZxO3iJGjwWiA&sig=lGolUc_5U6zP422NAMnDS9KkuX6KuQiLXtYtWLSZqx8=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100" src="http://embed.gettyimages.com/embed/521008297?et=9Es59AaqSatVMhR7mHuJbg&sig=UvH8C6YVKcA8lDZ1l9Be_bi2W6xekiP6uZyI00patQk=" mobile-grid-100" width="100%" height="400px" scrolling="no" frameborder="0"></iframe>';
+  this.slu      = '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/85258294?et=mLXGrJ-qRk5VVhLUCGjv8w&sig=IDoSLtOqJOTsu_mC0gIdXnQHItXbIZ7EbXMPTrxYlVc=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100 src="http://embed.gettyimages.com/embed/85185181?et=U9SvunO9QzBLLkrra589Qw&sig=3xZsQniAiACzurPF7UMZyGpRvSUUIoq3MAlbwlaCtkQ=" scrolling="no" mobile-grid-100" width="100% height="400px" frameborder="0"></iframe>';
+  this.downtown = '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/85205779?et=0dT8joEWS5dzpgbz72Lnuw&sig=6_iZ8xos-Gi731mnGWwA1A2QhglzVHgoy6vLTiCOc1c=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100" src="http://embed.gettyimages.com/embed/518922599?et=gPQWKblaSz1zRmei3a6K9g&sig=zZxlVyqJ5dcswIpnxHhcDzfO9B1RUYuoF3wHuYpkXE4=" mobile-grid-100" width="100%" height="400px" scrolling="no" frameborder="0"></iframe>';
+  this.caphill  = '<iframe class="grid-50 mobile-grid-100" width="100%" height="400px" src="http://embed.gettyimages.com/embed/515270145?et=V8JOu4YQSIBifY9F7FYIhw&sig=zf17ripZ3haI9GfHeX6KzPFd93Q1SOCDRsD8k-X5Q1w=" scrolling="no" frameborder="0"></iframe><iframe class="grid-50 mobile-grid-100" src="http://embed.gettyimages.com/embed/518922597?et=HPtTORb7RgRtIwgcDD65IA&sig=KUy8mMu2UmrQMq27FRHkg_oOzr2d61fJWUCUchxut2o=" mobile-grid-100" width="100%" height="400px" scrolling="no" frameborder="0"></iframe>';
 }
 
 function findMoreRoutes() {
@@ -177,33 +186,24 @@ function findMoreRoutes() {
   results.getBestRoute();
 }
 
-function Login() {
-  if($(".valueError").length !== 0) {
-    $(".formError").remove();
-    $("#loginName").before("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
-    event.preventDefault();
+$(function() {
+  if ($("#distance-result").length) {
+    compare();
   }
-  else if ($("#loginName").val().length === 0 || $("#password").val().length === 0) {
-    $(".formError").remove();
-    $("#loginName").before("<p class='formError'>You 'ave to insert your values properly mahn!</p>");
-    event.preventDefault();
+});
+
+$(function() {
+  if (localStorage.length === 0) {
+    $(".login").show();
+    $(".logout").hide();
   }
   else {
-    var $name = $("#loginName").val();
-    $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
     $(".login").hide();
-    $(".popupContainer").toggle();
-    $("nav").append("<a class='navitem green logout'>Logout</a>");
-    }
-}
-
-function Logout() {
-  $("#nameInsert").detach();
-  $("#logout").hide();
-  $(".login").show();
-  localStorage.clear();
-  location.reload();
-}
+    $(".logout").show();
+    var $name = JSON.parse(localStorage.getItem("storedInputs")).userName;
+    $("#nameInsert").append("<h2 class='greetings'>Welcome <em class='red'>" + $name + "!</em></h2>");
+  }
+});
 
 var results = new Results();
 results.addRoute(new Route ("Lake Union Loop", "SLU", 6.1, 1, "Amazon, Waterfront", resultPhotos.slu, '<iframe class="mapsize grid-100 mobile-grid-100" src="https://www.google.com/maps/embed?pb=!1m31!1m12!1m3!1d21506.15591166605!2d-122.34592607280044!3d47.64032975512734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m16!1i0!3e2!4m5!1s0x5490153bdc42ba65%3A0xc2981a6ccaed5d7d!2sLake+Union+Park%2C+860+Terry+Ave+N%2C+Seattle%2C+WA+98109!3m2!1d47.626393!2d-122.33721299999999!4m3!3m2!1d47.653005799999995!2d-122.3283295!4m3!3m2!1d47.6263868!2d-122.33527679999999!5e0!3m2!1sen!2sus!4v1422474394529" frameborder="0" style="border:0"></iframe>'));
