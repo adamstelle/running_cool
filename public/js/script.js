@@ -145,7 +145,11 @@ function store() {
     userValues["location"] = $("#location :selected").text();
     userValues["distance"] = Number($("#distance").val());
     userValues["incline"]  = Number($("#incline").val());
-    userValues["userName"] = $("#loginName").val();
+    if ($("#loginName").val().length === 0){
+      userValues["userName"] = JSON.parse(localStorage.getItem("storedInputs")).userName;
+    } else {
+      userValues["userName"] = $("#loginName").val();
+    }
     var jsonObj = JSON.stringify(userValues);
     localStorage.setItem("storedInputs", jsonObj);
   }
